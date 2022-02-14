@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komunikatorex</title>
+    <link rel="stylesheet" href="./static/style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="users">
+            {% for user in users %}
+                <form action="/base" method="post">
+                    <input type="text" name="user" value="{{ user[1] }}" style="position:fixed; top: 1000%;">
+                    <input type="submit" value="{{ user[1] }}">
+                </form>
+            {% endfor %}
+            <a href="/">
+                <div id="username">
+                    {{username}}
+                </div>
+            </a>
+        </div>
+        <div id="messages-container">
+            <div id="messages">
+                {% for message in messages %}
+                    <div class="message" style="background-color: {{ message[1] }};">{{ message[0][3] }}</div>
+                {% endfor %}
+            </div>
+            <form action="/addMesage" method="post" id="messageForm">
+                <input type="text" name="user-to" value="{{ user }}">
+                <input type="text" name="message" placeholder="Napisz wiadomość do użytkownika {{ user }}">
+                <input type="submit" value="Wyslij">
+            </form>
+            
+        </div>
+    </div>
+</body>
+</html>

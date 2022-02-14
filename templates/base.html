@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komunikatorex</title>
+    <link rel="stylesheet" href="./static/style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="users">
+            {% for user in users %}
+                <form action="/base" method="post">
+                    <input type="text" name="user" value="{{ user[1] }}" style="position:fixed; top: 1000%;">
+                    <input type="submit" value="{{ user[1] }}">
+                </form>
+            {% endfor %}
+            <div id="username">
+                {{username}}
+            </div>
+        </div>
+        <div id="messages">
+            <h2>Wybierz z kim chcesz się wyimeniać wiadomościami.</h2>
+        </div>
+    </div>
+</body>
+</html>

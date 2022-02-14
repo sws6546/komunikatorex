@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komunikatorex</title>
+    <link rel="stylesheet" href="./static/style.css">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p id="flash">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <h1>Witamy w komunikatorexie!</h1>
+    <h2>Komunikatorex to najleprzy komunikator, w którym każdy może być papieżem!</h2>
+    <div id="form-container">
+        <hr>
+        <form id="login" action="/login" method="post">
+            <h3>Zaloguj</h3>
+            <input type="text" name="username" placeholder="nazwa użytkownika">
+            <input type="password" name="password" placeholder="hasło">
+            <input type="submit" value="Zaloguj">
+        </form>
+        <hr>
+        <form id="register" action="/register" method="post">
+            <h3>Stwórz konto</h1>
+            <input type="text" name="username" placeholder="nazwa uzytkownika">
+            <input type="password" name="password" placeholder="hasło">
+            <input type="password" name="check-password" placeholder="powtórz hasło">
+            <input type="submit" value="Zarejestruj">
+        </form>
+    </div>
+</body>
+</html>
